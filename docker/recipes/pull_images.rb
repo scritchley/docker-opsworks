@@ -4,7 +4,7 @@ node[:my_apps].each do |name, image|
     interpreter "bash"
     user "root"
     code <<-EOH
-      docker pull #{image}
+      sudo docker pull #{image}
     EOH
   end
 end  
@@ -13,6 +13,6 @@ script "pull_nginx_image" do
   interpreter "bash"
   user "root"
   code <<-EOH
-    docker pull #{node[:my_nginx]}
+    sudo docker pull #{node[:my_nginx]}
   EOH
 end

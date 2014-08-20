@@ -4,7 +4,7 @@ node[:my_apps].each do |name, image|
     interpreter "bash"
     user "root"
     code <<-EOH
-      docker run -d --name=#{name} #{image}
+      sudo docker run -d --name=#{name} #{image}
     EOH
   end
 end
@@ -20,6 +20,6 @@ script "run_nginx_container" do
   interpreter "bash"
   user "root"
   code <<-EOH
-    docker run -d -p 80:80 --name=nginx #{links} #{node[:my_nginx]}
+    sudo docker run -d -p 80:80 --name=nginx #{links} #{node[:my_nginx]}
   EOH
 end
